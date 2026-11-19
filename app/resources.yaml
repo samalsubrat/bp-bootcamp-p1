@@ -12,8 +12,8 @@ items:
     name: foundation-settings
   data:
     LAB_ENV: "workshop-blue"                         # public label: workshop-blue or workshop-green
-    LAB_SESSION: "local"                              # PENDING real P1_SESSION; "local" = app default label
-    LOCAL_LOKI_URL: ""                                 # PENDING P1_CLUSTER_LOKI_URL; empty = stdout only, no Loki push
+    LAB_SESSION: "p1_subrat-20261119"                 # P1_SESSION (self-hosted session)
+    LOCAL_LOKI_URL: "http://p1-loki:3100"              # P1_CLUSTER_LOKI_URL (self-hosted Loki on network kind)
 - apiVersion: apps/v1
   kind: Deployment
   metadata:
@@ -30,11 +30,11 @@ items:
         labels:
           app: foundation
         annotations:
-          academy/config-revision: "1"
+          academy/config-revision: "2"
       spec:
         containers:
         - name: foundation
-          image: localhost/p1_subrat:foundation-a        # local build db37c67f4a65…; facilitator import PENDING
+          image: localhost/p1_subrat:foundation-a        # image ID db37c67f4a65…, imported into kind node p1
           imagePullPolicy: Never                         # prepared local image import; not a BP registry policy
           ports:
           - name: http
