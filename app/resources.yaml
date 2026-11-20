@@ -61,7 +61,7 @@ items:
     name: foundation
   spec:
     selector:
-      app: foundation-missing
+      app: foundation
     ports:
     - name: http
       port: 8080
