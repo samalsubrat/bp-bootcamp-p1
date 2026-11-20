@@ -1,4 +1,4 @@
-# Project 1 handover README (team: p1-subrat)
+# Project 1 handover README (p1-subrat)
 
 Status key: **executed locally (date)** · **executed on self-hosted stand-in (date)** · **pending** · **unavailable on BP**.
 
