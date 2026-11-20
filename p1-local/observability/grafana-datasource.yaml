@@ -1,0 +1,9 @@
+# Grafana provisioning: the self-hosted Loki, reached by container name on network p1-obs.
+apiVersion: 1
+datasources:
+  - name: Loki
+    uid: p1-loki
+    type: loki
+    access: proxy
+    url: http://p1-loki:3100
+    isDefault: true

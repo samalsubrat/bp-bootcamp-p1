@@ -1,0 +1,23 @@
+# Self-hosted stand-in for the facilitator's prepared personal Argo CD Application.
+# Manual sync only: a commit is deployed when the operator runs `argocd --core app sync --revision <commit>`.
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: p1-subrat
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    name: p1-subrat
+    namespace: argocd
+  spec:
+    project: default
+    source:
+      repoURL: http://git-server.p1-git.svc.cluster.local/p1-subrat.git
+      targetRevision: main
+      path: app
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: p1-subrat

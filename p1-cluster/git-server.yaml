@@ -1,0 +1,48 @@
+# Self-hosted stand-in for the facilitator's prepared classroom Git server (P1_REPO_NAMESPACE / P1_REPO_POD).
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: p1-git
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: git-server
+    namespace: p1-git
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: git-server
+    template:
+      metadata:
+        labels:
+          app: git-server
+      spec:
+        containers:
+        - name: git
+          image: localhost/p1-git-server:2
+          imagePullPolicy: Never
+          ports:
+          - name: http
+            containerPort: 8000
+          volumeMounts:
+          - name: repos
+            mountPath: /git
+        volumes:
+        - name: repos
+          emptyDir: {}     # repositories are re-submitted with submit.sh if the Pod is replaced
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: git-server
+    namespace: p1-git
+  spec:
+    selector:
+      app: git-server
+    ports:
+    - name: http
+      port: 80
+      targetPort: http

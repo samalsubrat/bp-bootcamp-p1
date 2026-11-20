@@ -1,0 +1,9 @@
+# Build output, image archives, downloaded tools: never submitted
+publish/
+bin/
+obj/
+p1-images/
+p1-tools/
+*.tar
+.kube/
+kubeconfig*

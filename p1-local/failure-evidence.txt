@@ -1,0 +1,32 @@
+== 2026-11-20T04:05:13Z argo
+Sync Status:        Synced to main (1653f1b)
+Health Status:      Healthy
+== workload
+NAME                              READY   STATUS    RESTARTS   AGE     IP            NODE               NOMINATED NODE   READINESS GATES
+pod/foundation-54846764d9-v2rph   1/1     Running   0          5m51s   10.244.0.12   p1-control-plane   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/foundation   ClusterIP   10.96.93.127   <none>        8080/TCP   5m51s   app=foundation-missing
+
+NAME                                              ADDRESSTYPE   PORTS     ENDPOINTS   AGE
+endpointslice.discovery.k8s.io/foundation-j5fb6   IPv4          <unset>   <unset>     5m51s
+== pod readiness
+foundation-54846764d9-v2rph phase=Running ready=true restarts=0
+== endpointslice endpoints
+foundation-j5fb6: endpoints=null
+== pods matching new selector
+No resources found in p1-subrat namespace.
+== fresh port-forward on 18082
+port-forward exit=124
+== request via 18082
+000
+curl failed (exit 7)
+== 2026-11-20T04:05:40Z fresh port-forward 18082 (--pod-running-timeout=20s)
+request during port-forward attempt:
+http=000
+curl failed (exit 7): nothing listening on 18082
+port-forward exit=1
+error: timed out waiting for the condition
+== OLD port-forward on 18081 (started before the change)
+HTTP/1.1 200 OK
+Healthy

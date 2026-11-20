@@ -1,0 +1,4 @@
+# Build output and local runtime state: not part of the submission
+publish/
+app/bin/
+app/obj/

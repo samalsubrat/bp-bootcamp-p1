@@ -1,0 +1,14 @@
+== 2026-11-20T04:07:24Z verify p1-subrat via fresh port-forward 127.0.0.1:18082
+argo: revision=08c8f5e1342241f45506e9beff318042691f4cd7 sync=Synced health=Healthy
+pod:  foundation-54846764d9-v2rph ready=false config-revision=2 imageID=sha256:db37c67f4a659db11e83c5e526a8b5f53d7e24542f45d915ed81f904d01aee2a ip=10.244.0.12 foundation-6bcf9bc55b-b7q26 ready=true config-revision=3 imageID=sha256:db37c67f4a659db11e83c5e526a8b5f53d7e24542f45d915ed81f904d01aee2a ip=10.244.0.13 
+endpoints: ["10.244.0.13"]
+page:    200 text/html
+health:  HTTP/1.1 200 OK / Healthy
+board:   HTTP/1.1 200 OK; X-Lab-Release: foundation-observe-a X-Lab-Environment: workshop-green
+body:    identical to data/board-reference.json
+env:     workshop-green as expected
+missing: HTTP/1.1 404 Not Found {"code":"NOT_FOUND","message":"Board not found"}
+request_id: 309c97c7-3379-4c79-a4bc-17b6ad4cd074
+pod log: READY release=foundation-observe-a environment=workshop-green session=p1_subrat-20261119
+pod log: request record found
+grafana: matching row for {job="academy-w110", session="p1_subrat-20261119"} | json | request_id="309c97c7-3379-4c79-a4bc-17b6ad4cd074"

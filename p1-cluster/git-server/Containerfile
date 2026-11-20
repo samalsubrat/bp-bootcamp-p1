@@ -1,0 +1,5 @@
+FROM docker.io/library/python:3.13-alpine
+# git-daemon provides `git http-backend` on Alpine (not included in the plain git package)
+RUN apk add --no-cache git git-daemon tar && git config --system --add safe.directory '*' && git http-backend --help >/dev/null 2>&1 || test -x /usr/libexec/git-core/git-http-backend
+COPY server.py /server.py
+ENTRYPOINT ["python", "-u", "/server.py"]

@@ -1,0 +1,10 @@
+HTTP/1.1 404 Not Found
+Content-Type: application/json; charset=utf-8
+Date: Thu, 19 Nov 2026 15:12:08 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+X-Lab-Release: foundation-observe-a
+X-Lab-Environment: workshop-blue
+X-Request-Id: 038269a3-1ddd-49c3-9b87-70537693f5ab
+
+{"code":"NOT_FOUND","message":"Board not found"}

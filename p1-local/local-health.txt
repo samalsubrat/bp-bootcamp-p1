@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Content-Length: 7
+Content-Type: text/plain; charset=utf-8
+Date: Thu, 19 Nov 2026 15:12:08 GMT
+Server: Kestrel
+X-Lab-Release: foundation-observe-a
+X-Lab-Environment: workshop-blue
+X-Request-Id: a879f2ce-1352-44e6-b866-dc4274e84353
+
+Healthy
